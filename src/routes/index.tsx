@@ -42,6 +42,8 @@ import {
   type Order,
   type OrderStatus,
 } from "@/lib/pos-data";
+import { printOrder } from "@/lib/printer";
+import { PrinterSettingsDialog } from "@/components/PrinterSettingsDialog";
 
 export const Route = createFileRoute("/")({
   component: POSPage,
@@ -192,6 +194,9 @@ function POSPage() {
                 </Badge>
               )}
             </Button>
+
+            <PrinterSettingsDialog />
+
 
             <Sheet open={cartOpen} onOpenChange={setCartOpen}>
               <SheetTrigger asChild>
@@ -871,7 +876,11 @@ function ReceiptDialog({
               </Button>
               <Button
                 className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90"
-                onClick={() => window.print()}
+                onClick={async () => {
+                  const r = await printOrder(order);
+                  if (r.ok) toast.success(`Printed via ${r.via}`);
+                  else toast.error(`Print failed: ${r.error ?? r.via}`);
+                }}
               >
                 <Printer className="mr-1 h-4 w-4" /> Print
               </Button>
