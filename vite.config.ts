@@ -12,4 +12,7 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Relative asset URLs so the built app also works when loaded via file:// (Electron)
+  // and capacitor:// (Android APK). Web hosting is unaffected.
+  vite: { base: "./" },
 });
