@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Emerald POS</string>
+    <string name="title_activity_main">Emerald POS</string>
+    <string name="package_name">com.emerald.pos</string>
+    <string name="custom_url_scheme">com.emerald.pos</string>
+</resources>
