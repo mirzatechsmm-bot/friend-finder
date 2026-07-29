@@ -15,6 +15,7 @@ import {
   Clock,
   ChefHat,
   Printer,
+  Shield,
 } from "lucide-react";
 import { toast } from "sonner";
 
