@@ -197,6 +197,13 @@ function POSPage() {
 
             <PrinterSettingsDialog />
 
+            <Link to="/admin">
+              <Button size="sm" variant="ghost" className="text-primary-foreground hover:bg-white/10 gap-2">
+                <Shield className="h-4 w-4" />
+                <span className="hidden sm:inline">Admin</span>
+              </Button>
+            </Link>
+
 
             <Sheet open={cartOpen} onOpenChange={setCartOpen}>
               <SheetTrigger asChild>
